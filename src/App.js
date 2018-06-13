@@ -8,7 +8,8 @@ class App extends Component {
       data : [
         { title: 'React js', isPending: true},
         { title: 'Node js', isPending: true},
-        { title: 'Java script', isPending: false}
+        { title: 'Java script', isPending: false},
+        { title: 'PHP script', isPending: false}
       ]
     }
   }
