@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 
 export default class TaskFlatList extends Component {
-
+    
     render() {
         const { onDeleteItem } = this.props;
-        let elements = this.props.listData.map((dulieu,index) =>
-              ( 
+        let elements = this.props.dataList.map((dulieu,index) =>
+              (
               <tr key={ index }>
                 <td>{index+1}</td>
                 <td>{dulieu.title}</td>
-                <td>{dulieu.isPending === true ? 'Da hoan thanh' : 'Chua hoan thanh'}</td>
-                <button className="btn btn-danger" onClick = { () => onDeleteItem(index,dulieu.title) }>Delete</button>
+                <td>{dulieu.isPending === true ? 'Da hoan thanh' : 'Chua hoan thanh'} </td>
+                <button className="btn btn-danger" onClick = {()=>this.onDeleteItem(index) } >Delete</button>
               </tr>
               )
         );
@@ -30,7 +30,6 @@ export default class TaskFlatList extends Component {
                     </tbody>
                 </table>
             </div>
-            
         );
     }
 }

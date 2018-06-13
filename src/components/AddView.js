@@ -5,25 +5,22 @@ export default class AddViews extends Component {
         super(props);
         this.state = { newTaskName: '' };
     }
-
-    handleChange(event) {
-        console.log(event.target.value);
-        this.setState({newTaskName: event.target.value});
+    
+    AddViews = (e) =>{
+        e.preventDefault();
+        const {AddViews} = this.props;
+        alert(this.refs.txt.value);
+        AddViews(this.refs.txt.value);
+        // this.setState({ newTaskName:'' });
     }
-
-    AddViews = () =>{
-        var newTaskName = this.refs.txt.value;
-        this.props.AddViews(newTaskName);
-        this.setState({ newTaskName:'' });
-    }
-
+    
     render() {
         return (
             <div>
-                <form onSubmit={()=>this.AddViews} >
+                <form onSubmit={this.AddViews} >
                     <legend>Add Note</legend>
                     <div className="form-group">
-                    <input onChange = { ()=>this.handleChange } className="form-control"/>
+                    <input ref="txt" className="form-control"/>
                     </div>
                     <button className="btn btn-primary">Save</button>
                 </form>
